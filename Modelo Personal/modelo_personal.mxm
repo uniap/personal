@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><Model version="5.0">
+    <Configuration>
+        <Property name="dialect" value="H2Dialect"/>
+        <Property name="ALIAS" value="H2"/>
+        <Property name="DRIVER" value="org.h2.Driver"/>
+        <Property name="PASSWORD" value=""/>
+        <Property name="PROMPTFORPASSWORD" value="false"/>
+        <Property name="URL" value="jdbc:h2:~/testDB"/>
+        <Property name="USER" value="sa"/>
+    </Configuration>
+    <CustomTypes/>
+    <Domains/>
+    <Tables>
+        <Table id="09bed6dd-0f26-409c-959d-d7214cdf1171" name="GRUPO_CONSUMO" schema="">
+            <Property name="LOCATION" value="72:32"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="4dc80bff-a9e5-4330-abea-a5b88b234e27" name="GRUPO_CONSUMO" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="45c7400e-f079-4f9e-b01f-d391aa13b948" name="ABREVIATURA_CL" nullable="false" scale="10" size="2"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="8726dd4e-0454-41e6-86b7-2aeb8e508291" name="LABEL_CL" nullable="false" scale="10" size="65"/>
+            <Index id="e7a5d782-c51c-44d6-a89f-e3cb46f643c5" indextype="PRIMARYKEY" name="IDX_PK_GRP_CONSUMO">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="4dc80bff-a9e5-4330-abea-a5b88b234e27" id="7c075055-abd6-4eea-9dec-c95d0d185cd0"/>
+            </Index>
+            <Index id="73cc6821-24dd-45c7-aad5-325f8b4d8409" indextype="UNIQUE" name="IDX_ABREVIATURA_GRP">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="45c7400e-f079-4f9e-b01f-d391aa13b948" id="2aea2ec1-f8d4-4fba-81ac-d3fd2d9339fe"/>
+            </Index>
+        </Table>
+        <Table id="851e24d4-bd40-47e6-afbc-2ac4a3cf6f58" name="MOVIMIENTO" schema="">
+            <Property name="LOCATION" value="77:209"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="d28b0c8f-9da6-49a7-8593-85e2a7400e40" name="NRO_MOVIMIENTO" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="2c786e73-6941-4e07-8715-3846f8d3d3ad" name="GRUPO_CONSUMO" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="06bf25ff-6359-4885-9b9e-5ad7884e2b15" name="FECHA" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="6b3da06c-f8f6-4592-953e-c07946292ca1" name="CUENTA" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="integer" defaultvalue="1" extra="" fraction="null" id="51835349-9ef2-4d93-ae20-c4bab2a4f4fa" name="PAGOS" nullable="false" scale="10" size=""/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="170b344e-ad78-484e-9ea5-ba68a767b014" name="IMPORTE" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="char" defaultvalue="'N'" extra="" fraction="null" id="96dab5b0-4421-4e58-a91e-16493e5b3f09" name="IMPUTADO" nullable="false" scale="10" size="1"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="ae19fd6a-3476-41f8-8df2-20f4c9825556" name="DESCRIPCION" nullable="false" scale="10" size="140"/>
+            <Index id="6aaa1cbe-20b1-4df2-9f1d-870be3225dfe" indextype="PRIMARYKEY" name="IDX_PK_MOVIMIENTO">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="d28b0c8f-9da6-49a7-8593-85e2a7400e40" id="fac3c064-d609-4141-82a3-f41d7a0b1724"/>
+            </Index>
+        </Table>
+        <Table id="0cb6bbdd-035a-4953-8325-28dd130e93c1" name="CUENTA" schema="">
+            <Property name="LOCATION" value="588:195"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="acc2ae45-490f-474e-9a6c-6772008273f6" name="CUENTA" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="b0a35fcc-cb92-4531-ae03-8b1948edc932" name="SALDO" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="0056af9a-eaf9-46f2-bfa1-bbba11b42dfa" name="ABREVIATURA_CL" nullable="false" scale="10" size="2"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="c48ad05a-696c-4ace-a5c7-cd42b7f1d476" name="LABEL_CL" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="408ab603-d1fb-421a-87b2-f460235f9f37" name="TIPO_CUENTA" nullable="false" scale="10" size="45"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="c6129f81-f910-4ce6-bc2d-606add70a399" name="GRUPO_RESUMEN" nullable="true" scale="10" size="25"/>
+            <Index id="d9886c36-ab74-4a22-9f9a-0fff2f1ac254" indextype="PRIMARYKEY" name="IDX_PK_CUENTA">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="acc2ae45-490f-474e-9a6c-6772008273f6" id="1fa7fd2f-046c-46f3-a66c-aa7dc30a43dc"/>
+            </Index>
+            <Index id="c16ce705-51d1-4293-b056-34038934ae27" indextype="UNIQUE" name="IDX_ABREVIATURA_CTA">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="0056af9a-eaf9-46f2-bfa1-bbba11b42dfa" id="5cda0ddb-849c-4a91-bb11-7e768ad05f62"/>
+            </Index>
+        </Table>
+        <Table id="e583b3a8-f3ef-4159-8373-26109970ed99" name="TIPO_CUENTA" schema="">
+            <Property name="LOCATION" value="590:37"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="8dd7c04b-9d6c-4601-bbd3-007214a4f8d3" name="TIPO_CUENTA" nullable="false" scale="10" size="45"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="fb0f266b-f557-401b-a5cd-dcf92fd76ded" name="ABREVIATURA_CL" nullable="false" scale="10" size="45"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="68025e1f-315b-4c9f-80b5-bcd19abf145d" name="LABEL_CL" nullable="false" scale="10" size="45"/>
+            <Index id="11cfa079-c838-49e7-aa81-061f29877732" indextype="PRIMARYKEY" name="IDX_PK_TIPOS_CUENTA">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="8dd7c04b-9d6c-4601-bbd3-007214a4f8d3" id="e0c2048d-f9bf-4fad-bd82-20198e3e0fd2"/>
+            </Index>
+        </Table>
+        <Table id="0d733800-b9c3-47c7-a1d3-413aa941464a" name="RESUMEN_TARJETA" schema="">
+            <Property name="LOCATION" value="585:418"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="51347ae6-b1c1-4998-bfe2-fc69808968c8" name="NRO_RESUMEN" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="72647019-6eae-4fb7-abf7-eaba8459713f" name="CUENTA" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="561c5eb4-40ca-4bdc-907b-f89c288cb9bc" name="FECHA_VENCIMIENTO" nullable="true" scale="10" size=""/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="0f0eeca9-4ab4-4313-b20a-0eda9cbe3d73" name="IMPORTE_TOTAL" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="1f19df47-1735-4fe9-ac95-9f8a58bcd540" name="FECHA_CIERRE" nullable="true" scale="10" size=""/>
+            <Attribute datatype="char" defaultvalue="" extra="" fraction="null" id="ca3d8f4d-9db9-46c8-807e-0836fe6360d2" name="PAGADO" nullable="false" scale="10" size="1"/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="9650a858-9b71-4c51-acf6-4dadee34c354" name="FECHA_PAGO" nullable="true" scale="10" size=""/>
+            <Index id="d4cc7b34-9522-4e9b-9ae5-e970ed318b4d" indextype="PRIMARYKEY" name="PK_RESUMEN">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="51347ae6-b1c1-4998-bfe2-fc69808968c8" id="5ed8cab2-7b73-4813-80e7-ef376aecae55"/>
+            </Index>
+        </Table>
+        <Table id="abec98d1-2b2a-4010-a199-43c8765d3a49" name="MOVIMIENTO_RESUMEN" schema="">
+            <Property name="LOCATION" value="70:428"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="38fd2c13-6b35-488b-9590-902e72dfaddc" name="IMPORTE_PAGO" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="6f3bcaea-242b-4eeb-a54b-01fc177aced6" name="NRO_MOVIMIENTO" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="c02b54e7-6e94-4702-8add-05570502e32b" name="NRO_RESUMEN" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="47dee396-0109-4d1e-a427-f50611119dba" name="TEXTO_RESUMEN" nullable="false" scale="10" size="65"/>
+        </Table>
+        <Table id="fdf97d16-7ff5-455b-85c5-cc109d7d8116" name="CONFIG_PARAM" schema="">
+            <Property name="LOCATION" value="583:572"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="76920ee6-73fa-42ff-92ef-f78418101eb2" name="NOMBRE" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="3d51b0ff-715a-4b82-8281-a00d212f00de" name="TIPO" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="b8b9d528-47a0-4a2e-8639-d631f2e4d127" name="VALOR" nullable="false" scale="10" size="150"/>
+            <Index id="1bf6c6b7-426c-46b2-a111-c3804c269641" indextype="PRIMARYKEY" name="PK_PARAMS">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="76920ee6-73fa-42ff-92ef-f78418101eb2" id="ceb9287f-3434-4e19-94b5-d21f7fe49790"/>
+            </Index>
+        </Table>
+        <Table id="4e84b7c4-09e8-446d-974c-6ef1f095c9f7" name="PLAZO_FIJO" schema="">
+            <Property name="LOCATION" value="95:545"/>
+            <Property name="hash" value="false"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="0873e37b-4f69-443c-ae40-f97e40188b3b" name="BANCO" nullable="false" scale="10" size="65"/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="677b7981-8dcc-41a1-bf8e-535a3f57c25b" name="FECHA_VTO" nullable="false" scale="10" size=""/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="415c585c-e55b-4ce5-91ec-fcb1d62c70b5" name="CAPITAL" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="numeric" defaultvalue="" extra="" fraction="2" id="8b09a354-8ea4-4ca5-97a4-87f62df5e3f3" name="INTERES" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="char" defaultvalue="" extra="" fraction="null" id="6eff0b9f-adc6-4b24-aa87-c72ad42d0dba" name="CERRADO" nullable="false" scale="10" size="1"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="aa1162c0-a6c4-4f19-bf7a-bd0453859246" name="NRO_PLAZO_FIJO" nullable="false" scale="10" size=""/>
+            <Index id="121dfa63-9ccf-480f-ba91-66df074f2495" indextype="PRIMARYKEY" name="PK_PF">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="aa1162c0-a6c4-4f19-bf7a-bd0453859246" id="fa37800f-a75d-4531-bdc1-df145487691a"/>
+            </Index>
+        </Table>
+        <Table id="ae3648fa-b966-47e3-bd0a-deb65ac2f42e" name="GRUPO_RESUMEN" schema="">
+            <Property name="LOCATION" value="865:131"/>
+            <Property name="tableType" value="CACHED"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="f6eb3c74-e762-4f5c-bef5-0185dc2af14f" name="GRUPO_RESUMEN" nullable="false" scale="10" size="25"/>
+            <Index id="1d16aebb-9294-474a-9b76-ba709c458533" indextype="PRIMARYKEY" name="PK_GRUPO_RESUMEN">
+                <Property name="hash" value="false"/>
+                <Indexattribute attributerefid="f6eb3c74-e762-4f5c-bef5-0185dc2af14f" id="8dc98f62-b7fa-4956-bd0a-806295f356bf"/>
+            </Index>
+        </Table>
+    </Tables>
+    <Relations>
+        <Relation exportingtablerefid="09bed6dd-0f26-409c-959d-d7214cdf1171" id="13241433-72a0-45fc-842e-625dee79c168" importingtablerefid="851e24d4-bd40-47e6-afbc-2ac4a3cf6f58" name="FK_MOVIMIENTO_GRP_CONSUMO" ondelete="RESTRICT" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="7c075055-abd6-4eea-9dec-c95d0d185cd0" importingattributerefid="2c786e73-6941-4e07-8715-3846f8d3d3ad"/>
+        </Relation>
+        <Relation exportingtablerefid="0cb6bbdd-035a-4953-8325-28dd130e93c1" id="84782b00-7e85-4c02-9728-71fe9798bb06" importingtablerefid="851e24d4-bd40-47e6-afbc-2ac4a3cf6f58" name="FK_MOVIMIENTO_CUENTA" ondelete="RESTRICT" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1fa7fd2f-046c-46f3-a66c-aa7dc30a43dc" importingattributerefid="6b3da06c-f8f6-4592-953e-c07946292ca1"/>
+        </Relation>
+        <Relation exportingtablerefid="e583b3a8-f3ef-4159-8373-26109970ed99" id="26181741-18e9-4242-9c3d-b0ae5ed66b12" importingtablerefid="0cb6bbdd-035a-4953-8325-28dd130e93c1" name="FK_TIPO_CUENTA_CUENTA" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="726:285,728:71"/>
+            <Mapping exportingexpressionrefid="e0c2048d-f9bf-4fad-bd82-20198e3e0fd2" importingattributerefid="408ab603-d1fb-421a-87b2-f460235f9f37"/>
+        </Relation>
+        <Relation exportingtablerefid="0cb6bbdd-035a-4953-8325-28dd130e93c1" id="0b6ce8bc-a3e8-4d8f-a780-e6ce99033ec4" importingtablerefid="0d733800-b9c3-47c7-a1d3-413aa941464a" name="FK_CUENTA_RESUMEN" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="731:474,726:285"/>
+            <Mapping exportingexpressionrefid="1fa7fd2f-046c-46f3-a66c-aa7dc30a43dc" importingattributerefid="72647019-6eae-4fb7-abf7-eaba8459713f"/>
+        </Relation>
+        <Relation exportingtablerefid="851e24d4-bd40-47e6-afbc-2ac4a3cf6f58" id="10efbce1-a98e-472e-9aba-f8a430f74505" importingtablerefid="abec98d1-2b2a-4010-a199-43c8765d3a49" name="FK_MOV_MOV_RES" ondelete="RESTRICT" onupdate="RESTRICT">
+            <Mapping exportingexpressionrefid="fac3c064-d609-4141-82a3-f41d7a0b1724" importingattributerefid="6f3bcaea-242b-4eeb-a54b-01fc177aced6"/>
+        </Relation>
+        <Relation exportingtablerefid="0d733800-b9c3-47c7-a1d3-413aa941464a" id="98e545d5-fe41-469e-af30-b3a6fe96d1af" importingtablerefid="abec98d1-2b2a-4010-a199-43c8765d3a49" name="FK_TARJETA_MOV_RESUMEN" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="213:469,726:493"/>
+            <Mapping exportingexpressionrefid="5ed8cab2-7b73-4813-80e7-ef376aecae55" importingattributerefid="c02b54e7-6e94-4702-8add-05570502e32b"/>
+        </Relation>
+        <Relation exportingtablerefid="ae3648fa-b966-47e3-bd0a-deb65ac2f42e" id="108c47c1-f228-498b-a917-15b9993b69e8" importingtablerefid="0cb6bbdd-035a-4953-8325-28dd130e93c1" name="FK_GRP_RESUMEN" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="8dc98f62-b7fa-4956-bd0a-806295f356bf" importingattributerefid="c6129f81-f910-4ce6-bc2d-606add70a399"/>
+        </Relation>
+    </Relations>
+    <Views/>
+    <Subjectareas/>
+    <Comments/>
+</Model>
